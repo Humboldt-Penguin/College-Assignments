@@ -1,0 +1,262 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lachaise Assignment
+% LaTeX Template
+% Version 1.0 (26/6/2018)
+%
+% This template originates from:
+% http://www.LaTeXTemplates.com
+%
+% Authors:
+% Marion Lachaise & François Févotte
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\input{Structures/structure_1} % Include the file specifying the document structure and custom commands
+
+%----------------------------------------------------------------------------------------
+%	ASSIGNMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Math 300 -- Homework 1} % Title of the assignment
+
+\author{Zain Kamal\\ \texttt{z.kamal2021@gmail.com}} % Author name and email address
+
+\date{\today} % University, school and/or department name(s) and a date
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title
+
+\section{Translation} % Numbered section
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+    Define $A$ as the set of everyone.
+
+    Define $L_D(x) := x$ loves dogs.
+    
+    Then $\forall a \in A, L_D(a)$.
+    \item 
+    Define $D$ as the set of all dogs.
+    
+    Define $L(x,y) := x$ loves $y$.
+    
+    Then $\forall a \in A, (\exists d \in D : L(a, d)) \lor a \in D$.
+    
+    % \textit{Alternative (I think this is incorrect because I define $d$ even though $a \in D$ does not make use of $d$, but I'm not sure): }
+    
+    % Then $\forall a \in A, \exists d \in D : L(a, d) \lor a \in D$.
+    
+    % Then $\forall a \in A, L(a) \lor a \in D$
+    
+    % Not good, d is unnecessary: Then $\forall a \in A, \exists d\in D : L(a) \lor (a=d)$.
+    
+    % Alt: Then $\forall a \in A, L(a) \lor (\exists d\in D : a=d)$.
+    
+    \item
+    % $\forall a \in \mathbb{Z}, \exists b := a + 1 > a$.
+    
+    $\forall a \in \mathbb{Z}, \exists b \in \mathbb{Z} : b > a$.
+    
+    % Let $l$ be the largest integer.
+    
+    % Then $\nexists ln$.
+    
+    \item
+    Define $R(x) := x$ gets rest.
+    
+    Define $E(x) := x$ gets exercise.
+    
+    Define $G(x) := x$ has a good diet.
+    
+    Define $H(x) := x$ is healthy.
+    
+    Then $\forall a \in A, H(a) \Rightarrow R(a) \land E(a) \land G(a)$.
+    
+    % WRONG: Then $\forall a \in A, R(a) \land E(a) \land G(a) \Rightarrow H(a)$.
+    
+    \item
+    $\forall a \in \mathbb{Z}, \exists b \in \mathbb{Z} : b > a$.
+    
+    \item
+    Define $P(x)$ as true if $x$ is prime and false if not. 
+    
+    Define $D(a,b) := a$ divides $b$. 
+    
+    Let $x \in \mathbb{Z}$.
+    
+    $P(x) := x > 1 \land (\forall y \in \mathbb{Z}, D(y, x) \Leftrightarrow y=1 \lor y=x)$.
+    
+    % $P(x) := x > 1 \land (\forall y \in \mathbb{Z}, (y>1 \land y \neq x) \Rightarrow \lnot D(y, x))$.
+    
+    % Define $P$ as the set of prime numbers.
+    
+    % Let $x,y \in \mathbb{R}$.
+    
+    % Define $D(a,b) := a$ divides $b$.
+    
+    % % Then $x\in P \Leftrightarrow x>1 \land (\nexists y \in \mathbb{R} : y \neq 1 \land D(y,x))$.
+    
+    % Then $x\in P \Leftrightarrow x>1 \land (\forall y \neq 1, \lnot  D(y,x))$.
+    
+    % % $\forall y \in \mathbb{R}, y \neq 1 \Rightarrow \varepsilon $
+    
+    
+\end{enumerate}
+    
+%----------------------------------------------------------------------------------------
+
+\section{Negation}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+    $\exists a \in A : \lnot L_D(a)$.
+    
+    \item
+    $\exists a \in A : (\forall d \in D, \lnot L(a,d)) \land a \notin D$.
+    % NEXISTS IS NOT A THING, ONLY LNOT EXISTS
+    
+    % $\exists a \in A : (\nexists d \in D : L(a,d)) \land a \notin D$.
+    %% (\forall d \in D, \lnot L(a,d)) IS PREFERRABLE TO (\nexists d \in D : L(a,d))
+    
+    % $\exists a \in A : (\lnot \exists d \in D : L(a,d)) \land \lnot(a \in D)$.
+    
+    \item
+    $\exists a \in \mathbb{Z} : \forall b \in \mathbb{Z}, a \geq b$.
+    
+    \item
+    $\exists a \in A : H(a) \land (\lnot R(a) \lor \lnot E(a) \lor \lnot G(a))$.
+    % NOTE THE NEGATION HERE
+    
+    \item
+    $\exists a \in \mathbb{Z} : \forall b \in \mathbb{Z}, a \geq b$.
+    
+    \item
+    $\lnot P(x) \Leftrightarrow x < 1 \lor (\exists y \in \mathbb{Z} : (y>1 \land y \neq x) \Rightarrow D(y,x))$. 
+    % If the statement were $x>1 \land (\forall y \neq 1, \lnot  D(y,x))$,
+    
+    % then the negation would be $x \leq 1 \lor (\exists y \neq 1 : D(y,x))$. \\
+    
+    % However, if the statement were $x\in P \Leftrightarrow x>1 \land (\forall y \neq 1, \lnot  D(y,x))$, generalized to the form $X \Leftrightarrow Y$,
+    
+    % then the negation would take the generalized form $(X \land \lnot Y) \lor (\lnot X \land Y)$. \\
+    
+    % \textbf{ASK THEM ABOUT THIS TOMORROW, I'VE ASKED TOO MANY QUESTIONS TODAY LOL.}
+
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+
+\section{Exercises}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+    (LEM to Consistency via DeMorgan's Law:)
+    
+    We start with LEM: $(p \lor \lnot p) \Leftrightarrow T$.
+    
+    Negate both sides: $\lnot(p \lor \lnot p) \Leftrightarrow \lnot T$.
+    
+    Use DeMorgan's Law on left side: $(\lnot p \land \lnot \lnot p) \Leftrightarrow \lnot T$.
+    
+    Simplify left side ("double negative") and right side ("truth"): $(\lnot p \land p) \Leftrightarrow F$.
+    
+    Rearrange left side ("commutivity of and"): $(p \land \lnot p) \Leftrightarrow F$. We now have "consistency"!
+    
+    \item
+    (Absorption exercise:)
+    
+    We start with $(p \land (p \lor q))$.
+    
+    Using distribution, this becomes: $(p \land p) \lor (p \land q)$.
+    
+    Using idempotence, this becomes: $(p \lor (p \land q))$. 
+    
+    Therefore $(p \land (p \lor q)) \equiv (p \lor (p \land q))$.
+    
+    \item
+    (Explain contrapositive:)
+    
+    $(p \Rightarrow q)$ means that if $p$ is true, then $q$ must necessarily be true. Therefore, if we observe $q$ is false, then we know that $p$ couldn't have been true, i.e. $p$ is false. 
+    
+    \item
+    (Modus tollens to modus ponens:)
+    
+    We start with modus tollens: $(\lnot q \land (p \Rightarrow q)) \Rightarrow \lnot p$.
+    
+    Define $a := \lnot p$ and $b := \lnot q$ and substitute to get: $(b \land (\lnot a \Rightarrow \lnot b)) \Rightarrow a$.
+    
+    Simplify the contrapositive on the left side: $(b \land (b \Rightarrow a)) \Rightarrow a$. This is Modus ponens.
+    
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+
+\section{Xor}
+
+$P \ovee Q \Leftrightarrow (P \lor Q) \land \lnot(P \land Q)$ 
+
+$\quad \ \ \Leftrightarrow (P \lor Q) \land  (\lnot P \lor \lnot Q)$.\\
+
+
+$P \ovee Q$ is true if and only if "either $P$ or $Q$ is true, but not both". 
+
+The first part of that statement, "either $P$ or $Q$ is true," can be written as $P \lor Q$. 
+
+The second part, "but not both [are true]," can be written as $\lnot (P \land Q)$, or $(\lnot P \lor \lnot Q)$ by DeMorgan's Law.
+
+$P \ovee Q$ is the conjunction of the first and second statement, so we combine them with $\land$.
+
+%----------------------------------------------------------------------------------------
+
+\section{Exercise}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+    "For all numbers $x$ in the set of real numbers, there exists a number $y$ in the set of real numbers such that the sum of $x$ and $y$ is $0$.
+    
+    This is true. If we let $y = -x$ and substitute into $x+y=0$, we get $x-x=0 \Leftrightarrow 0=0$.
+    
+    \item
+    "There exists a number $x$ in the set of real numbers such that, for all numbers $y$ in the set of real numbers, the sum of $x$ and $y$ is $0$."
+    
+    This is false. For example, if we choose $y=0$ and substitute into $x+y=0$, we get $x=0$. However, if we instead choose $y=1$ for the substitution, we get $x=-1$. $x$ can't simultaneously be equal to $0$ and $-1$, so we have a contradiction. Therefore the initial proposition is false.
+
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+
+\section{Uniqueness}
+
+The statement is equivalent to: $\exists x \in X : P(x) \land (\forall y \in X, P(y) \Leftrightarrow y=x)$.
+
+This is equivalent because $\exists x \in X : P(x)$ means there's at least one element $x$ that satisfies $P$, but there could be other such elements. To rule out the existence of these other elements, we must clarify that out of all the elements in $X$, the only one that satisfies $P$ is $x$.
+
+However, this answer is technically slightly redundant. We can get rid of $P(x)$ and get: $\exists x \in X : (\forall y \in X, P(y) \Leftrightarrow y=x)$.
+
+%----------------------------------------------------------------------------------------
+% SECTION TEMPLATE
+% ----------------------------------------------------------------------------------------
+
+% \section{Negation}
+
+% \begin{enumerate}[label=\alph*)]
+%     \item 
+
+% \end{enumerate}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

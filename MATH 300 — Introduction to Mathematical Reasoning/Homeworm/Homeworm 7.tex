@@ -1,0 +1,201 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\input{Structures/structure_2}
+\begin{document}
+\chead{\textbf{Homeworm 7}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Let $A = \{1, 2\}, B = \{x, y\}$. List all functions from $A \to B$ that are:
+\end{problem*}
+
+\begin{problem} a
+injections;
+\end{problem}
+
+
+\begin{itemize}
+\item $\{( 1,x) ,( 2,y)\}$
+\item $\{( 1,y) ,( 2,x)\}$
+\end{itemize}
+
+
+\begin{problem} b
+surjections; 
+\end{problem}
+
+same as (a)
+
+\begin{problem} c
+bijections; 
+\end{problem}
+
+same as (a)
+
+\begin{problem} d
+none of the above.
+\end{problem}
+
+
+\begin{itemize}
+\item $\{( 1,x) ,( 2,x)\}$
+\item $\{( 1,y) ,( 2,y)\}$
+\end{itemize}
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem} a
+Supply a proof for Proposition 7.8.
+\end{problem}
+
+Choose some $x,y\in A$ such that, for some $z\in C$, $g( f( x)) =g( f( y)) =z$. 
+
+Let $a=f( x)$ and $b=f( y)$. Because $g$ is injective, $g( a) =g( b)$ implies $a=b$. Therefore $f( x) =f( y)$. Because $f$ is injective, $f( x) =f( y)$ implies $x=y$. 
+
+Thus $g\circ f$ is injective, because for all $x,y\in A$, if $g( f( x)) =g( f( y))$ then $x=y$.\qed 
+
+\
+
+\begin{problem} b
+Suppose $f:A\to B$ and $g:B\to C$. If $g\circ f$ is injective, is it necessarily the case that $f$ is injective? Is it necessarily the case that $g$ is injective? Prove or disprove your claims.
+\end{problem}
+
+Choose some $x,y\in A$ such that $f( x) =f( y)$. We know $f( x) ,f( y) \in B$, so we can take $g$ of both sides to find $g( f( x)) =g( f( y))$. As proven in part (a), since $g\circ f$ is injective, this implies $x=y$. Thus $f$ is injective. 
+
+If we let $a=f( x)$ and $b=f( y)$, then the previous equation ($g( f( x)) =g( f( y))$) becomes $g( a) =g( b)$. Since $x=y$, we also know $f( x) =f( y)$, or $a=b$. Note that $a,b\in f( A)$, thus $g$ is injective over the image of $A$ under $f$.\qed
+
+\
+
+\begin{problem} c
+Repeat part (b) but replace injective with surjective. 
+\end{problem}
+
+Choose some $z\in C$. Since $g\circ f$ is surjective, there exists an $x\in A$ such that $( g\circ f)( x) =g( f( x)) =z$. If we let $b=f( x)$, then we get $g( y) =z$. Thus $g$ is surjective.
+
+However $f$ is not necessarily surjective as the image of $f$ does not have to be all of $B$. For example, take $A=C=\{1\}$, $B=[ 2]$, and $f( x) =g( x) =1$.
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Find a function from $\mathbb{R}$ to $\mathbb{R}$, and supply a proof of your claim, that is:
+\end{problem*}
+
+\begin{problem} a
+an injection but not a surjection;
+\end{problem}
+
+$f( x) =e^{x}$ is an injection but not a surjection. 
+
+Injective: Choose some $a,b\in \mathbb{R}$ such that $f( a) =f( b)$. Some algebraic manipulation yields:
+\begin{align*}
+f( a) & =f( b)\\
+e^{a} & =e^{b}\\
+\ln e^{a} & =\ln e^{b}\\
+a & =b.
+\end{align*}
+Not surjective: As an example, $-1\in \mathbb{R}$, but there does not exist some $x\in \mathbb{R}$ such that $e^{x} =-1$. The range of $f( x)$ is $( 0,\infty )$.
+
+
+
+\
+
+\begin{problem} b
+a surjection but not an injection;
+\end{problem}
+
+$f( x) =x^{3} +x^{2}$ is a surjection but not an injection.
+
+Surjective: We know $f$ is continuous for $\mathbb{R}$ and $\lim _{x\rightarrow -\infty } f( x) =-\infty $ and $\lim _{x\rightarrow \infty } f( x) =\infty $. Therefore, by the intermediate value theorem, for any $y\in ( -\infty ,\infty ) =\mathbb{R}$, there exists an $x\in \mathbb{R}$ such that $f( x) =y$.
+
+Not Injective: As an example, if $a=0$ and $b=-1$, we can have $f( a) =f( b) =0$ while $a\neq b$.
+
+\
+
+\begin{problem} c
+a bijection; 
+\end{problem}
+
+$f( x) =x$ is a bijection.
+
+Injective: If we choose some $a,b\in \mathbb{R}$ such that $f( a) =f( b)$, it follows that $a=b$.
+
+Surjective: Choose some $y\in \mathbb{R}$. There exists some $x=y$ such that $f( x) =y$.
+
+\
+
+\begin{problem} d
+neither a surjection nor an injection.
+\end{problem}
+
+$f( x) =x^{2}$ is neither an injection nor a surjection.
+
+Not Injective: Choose some $a,b\in \mathbb{R}$ such that $a=-b$. We find that $f( a) =f( b) =a^{2}$ even though $a\neq b$.
+
+Not Surjective: As an example, $-1\in \mathbb{R}$, but there is no $x$ such that $f( x) =-1$. The range of $f$ is $[ 0,\infty )$.
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Let $f:A\to B$, and let $G_1,G_2\subseteq A$, and let $H_1,H_2\subseteq B$.
+\end{problem*}
+
+% (I'm assuming $f$ is an invertible function).
+
+\begin{problem} a
+Is it true that $f^{-1}(f(G_1))=G_1$? If so, prove it; if not, provide a counterexample, and provide the correct relation between the two sets, and justify your answer. 
+\end{problem}
+
+We know the image of $G_{1}$ under $f$, or $f( G_{1})$, will map to a set in $B$, which we'll call $G'$. The pre-image of $G'$, or $f^{-1}( G')$ will map back to the original values in $A$ that map to $G'$, which we originally said was the set $G_{1}$. Thus $f^{-1} (f(G_{1} ))=G_{1}$.
+
+% Let $G'$ be the image of $G_{1}$ under $f$, or the set of all $f( x)$ such that $x\in G_{1}$. In other words, $G'=f( G_{1})$. Then the pre-image of $G'$ under $f$ is the set of all $x'$ such that $f( x') \in G'$. The pre-image effectively reverses the image, mapping back to the original domain of all $x\in G_{1}$. Thus the statement is true.
+
+\
+
+\begin{problem} b
+Is it true that $f(f^{-1}(H_1))=H_1$? If so, prove it; if not, provide a counterexample, and provide the correct relation between the two sets, and justify your answer.
+\end{problem}
+
+The pre-image of $H_{1}$, or $f^{-1}( H_{1})$, will map to a set of values in $A$ (which we'll call $H'$) that are characterized by mapping to $H_{1}$ under $f$. The image of $H'$, or $f( H')$, will map to a set of values in $B$ under the relation $f$. But we originally said that this set was $H_{1}$, thus $f(f^{-1} (H_{1} ))=H_{1}$.
+
+\
+
+\begin{problem} c
+Is it true that $f(G_1\cap G_2)=f(G_1)\cap f(G_2)$? If so, prove it; if not, provide a counterexample, and provide the correct relation between the two sets, and justify your answer.
+\end{problem}
+
+Not true: As a counterexample, let $f:[ 2]\rightarrow \{1\}$, and let $G_{1} =\{1\} ,\ G_{2} =\{2\}$. The left side evaluates to $f(G_{1} \cap G_{2} )=f( \varnothing) =\varnothing$. However, the right side evaluates to $f(G_{1} )\cap f(G_{2} )=\{1\} \cap \{1\} =\{1\}$.
+
+The correct relation is $f(G_{1} \cap G_{2} )\subseteq f(G_{1} )\cap f(G_{2} )$. We know $G_{1} \cap G_{2} \subseteq G_{1}$, which implies $f( G_{1} \cap G_{2}) \subseteq f( G_{1})$. A similar argument but with $G_{2}$ shows $f( G_{1} \cap G_{2}) \subseteq f( G_{2})$. Combining these, we get $f(G_{1} \cap G_{2} )\subseteq f(G_{1} )\cap f(G_{2} )$.
+
+A more standard way to prove this would be to choose some $x\in f (G_{1} \cap G_{2} )$. If we find the pre-image of both sides, we get $f^{-1}( x) \in G_{1} \cap G_{2}$. We can split this into $f^{-1}( x) \in G_{1}$ and $f^{-1}( x) \in G_{2}$, then find the images which are $x\in f( G_{1})$ and $x\in f( G_{2})$ respectively. Combining these yeilds $x\in f(G_{1} )\cap f(G_{2} )$. Thus $f(G_{1} \cap G_{2} )\subseteq f(G_{1} )\cap f (G_{2} )$.
+
+\
+
+\begin{problem} d
+Is it true that $f^{-1}(H_1\cap H_2)=f^{-1}(H_1)\cap f^{-1}(H_2)$? If so, prove it; if not, provide a counterexample, and provide the correct relation between the two sets, and justify your answer.
+\end{problem}
+
+Choose some $h\in f^{-1} (H_{1} \cap H_{2} )$. If we find the image of both sides, we get $f( h) \in H_{1} \cap H_{2}$. We can split this into $f( h) \in H_{1}$ and $f( h) \in H_{2}$, then find the pre-images which are $h\in f^{-1}( H_{1})$ and $h\in f^{-1}( H_{2})$ respectively. Combining these yeilds $h\in f^{-1} (H_{1} )\cap f^{-1} (H_{2} )$. Thus $f^{-1} (H_{1} \cap H_{2} )\subseteq f^{-1} (H_{1} )\cap f^{-1} (H_{2} )$.
+
+
+
+Choose some $h'\in f^{-1} (H_{1} )\cap f^{-1} (H_{2} )$. We can split this into $h'\in f^{-1}( H_{1})$ and $h'\in f^{-1}( H_{2})$. If we find the images of both sides of each, we get $f( h') \in H_{1}$ and $f( h') \in H_{2}$. Combining these yields $f( h') \in H_{1} \cap H_{2}$, and finding the pre-image of both sides gives $h'\in f^{-1}( H_{1} \cap H_{2})$. Thus $f^{-1} (H_{1} )\cap f^{-1} (H_{2} )\subseteq f^{-1}( H_{1} \cap H_{2})$.
+
+
+
+Having proven subset equality in both directions, we can conclude $f^{-1} (H_{1} \cap H_{2} )=f^{-1} (H_{1} )\cap f^{-1} (H_{2} )$. 
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

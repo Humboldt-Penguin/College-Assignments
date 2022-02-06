@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\input{Structures/structure_2}
+\begin{document}
+\chead{\textbf{Homeworm 5}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Find the error in the proof of Proposition 5.14 (it is not true!). Respond in the homework channel on Discord rather than here, and discuss potential solutions.
+\end{problem*}
+
+The proof wrongfully assumes that $s$ exists. This is not the case in a tree with a single vertex ($G=(\lrbrace{v_1},\lrbrace{})$), where $v_1$ is not connected to any vertices.
+
+This can be fixed by specifying that $V$ has atleast 2 elements ($|V|\geq 2$) at the beginning of the proof.
+
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Prove that the sum of degrees of vertices in a simple graph is even.
+\end{problem*}
+
+Let $P( n)$ be the statement that the sum of degrees of vertices in a simple graph with $n$ vertices is even. 
+
+$P( 0)$ is true, as a graph with 0 vertices has 0 connections. $P( 1)$ is also true, as a graph with 1 vertex has 0 connections. 
+
+\
+
+Now suppose $P( k)$ is true for some integer $k\geq 1$. Let $G$ be a simple graph with $k+1$ vertices. Choose some vertex $v$ in $G$, and let $V'$ be the set of vertices connected to $v$. Removing $v$ from $G$ will decrease the sum of degrees of vertices by $2\cdot |V'|$, as $v$ has a degree of $|V'|$, and the degree of all vertices in $V'$ will decrease by one. 
+
+Note that $2\cdot |V'|$ is even because $2\cdot |V'|=2k$' for some integer $k'=|V'|\in \ints$.
+
+$G$ is now a simple graph with $k$ vertices, so the sum of their degrees is even. If we re-add $v$ (and its original connections) to $G$, the sum of degrees of vertices will increase by $2\cdot |V'|$. The sum of two even numbers is even, so $P( k+1)$ follows. Thus by induction, $P( n)$ is true for all integers $n\geq 0$. \qed
+
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem} a
+Prove that a connected, simple graph with $|V| - 1$ edges is acyclic.
+\end{problem}
+
+Let $P( n)$ be the statement that at least $n-1$ edges are required to connect a simple graph with $n$ vertices. $P( 1)$ is true, as a simple graph with one vertex has zero edges and is connected.
+
+Now suppose $P( k)$ for some natural number $k\geq 1$. Take a simple graph with $k+1$ vertices and zero edges. Removing an arbitrary vertex, $v$, allows us to form a connected graph with $k-1$ edges, which is the minimum. If we now re-add $v$, we need to add a minimum of one edge to ensure connectedness. Thus we have a graph with $k+1$ vertices and the minimum number of edges, $( k-1) +1=k$, so $P( k+1)$ follows. Thus by induction, $P( n)$ is true for all $n\in \mathbb{N}$.
+
+\
+
+Now suppose for the sake of contradiction that there exists a connected simple graph with $|V|-1$ edges that is also cyclic. Because it's cyclic, we can remove at least one edge while remaining connected. However, this leads to a connected graph with less than $|V|-1$ edges, which contradicts $P( |V|)$. Therefore, a connected simple graph with $|V|-1$ edges must be acyclic.\qed
+
+\
+
+\begin{problem} b
+Prove that an acyclic, simple graph with $|V| - 1$ edges is connected.
+\end{problem}
+
+Let $P( n)$ be the statement that an acyclic, simple graph with $n$ vertices and $n-1$ edges is connected. $P( 1)$ is true because there is only one configuration (a single vertex), and it is both acyclic and connected.
+
+\
+
+Now supposed $P( k)$ for some natural number $k\geq 1$. Let $G$ be a simple, acyclic graph with $k+1$ vertices and $k$ edges. Because $G$ is acyclic and has atleast one edge, we can find a subgraph of $G$ containing a set of connected, acyclic vertices. This subgraph is a tree, so it must have at least two leaves by Proposition 5.14 (note that we escape the error in problem 1 because there are at least two vertices). Thus $G$ has at least two leaves. Removing one of these leaves will remove a single edge, resulting in a new graph, $G'$, with $k$ vertices and $k-1$ edges. $G'$ is still acyclic as we are not adding any new edges, so $P( k)$ implies that $G'$ is connected. If we re-add the leaf (and edge) we removed, we have a simple, acyclic graph with $k+1$ vertices and $k$ edges that is connected, so $P( k+1)$ follows. Thus by induction, $P( n)$ is true for all $n\in \mathbb{N}$.\qed
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Prove that a simple graph is bipartite iff it contains no odd-length cycles.
+\end{problem*}
+
+($\Rightarrow $) Divide the vertices of a bipartite graph into two disjoint and independent sets, $U$ and $V$ such that every edge connects a vertex in $U$ to one in $V$. Suppose for the sake of contradiction that the bipartite graph contains an odd-length cycle, represented by the path $v_{1} ,v_{2} ,\dotsc ,v_{n} ,v_{1}$ where $n$ must be odd. Let $v_{1}$ be an element of one of the sets, say $U$. Then $v_{i} \in U$ if $i$ is odd (there exists some integer $k$ such that $i=2k+1$) as every 2 "steps" bring us back to an element of $U$. Thus $v_{n} \in U$, but this leads to a contradiction as $v_{n}$ and $v_{1}$ share an edge but are both elements of $U$. Therefore if a graph is bipartite, then it contains no odd-length cycles.
+
+\
+
+($\Leftarrow $) Let $G$ be a connected graph with no odd-length cycles. Choose some vertex $v$. Let $U$ be the set of vertices with an odd-length path from $v$, and let $V$ be the set of vertices with an even-length path from $v$. Thus $U$ and $V$ are disjoint, and together they comprise all vertices in $G$.
+
+Suppose for the sake of contradiction that there exist two unique vertices, $v_{a}$ and $v_{b}$, such that they belong to the same set ($v_{a} ,v_{b} \in U$ or $v_{a} ,v_{b} \in V$) and are connected by an edge. 
+\begin{itemize}
+\item Case 1: If $v_{a} =v$, then the distance between $v$ and $v_{a}$ is zero, which is even. Vertex $v_{b}$ is in the same set as $v_{a}$, so the distance between $v_{b}$ and $v$ (equivalently, the distance between $v_{b}$ and $v_{a}$) must also be even. But this leads to a contradicion, as $v_{a}$ and $v_{b}$ being connected by an edge would imply the distance between them is one, which is odd.
+\item Case 2: Assume $v_{a} \neq v_{b} \neq v$. Let $A$ be the shortest path from $v$ to $v_{a}$, and let $B$ be the shortest path from $v$ to $v_{b}$. Vertices $v_{a}$ and $v_{b}$ are both in the same set, so the lengths of $A$ and $B$ must be of the same parity. Thus, traveling from $v_{a}$ to $v_{b}$ by traversing path $A$ in the reverse direction and then path $B$ in the forward direction will have an even-length, as the sum of two numbers with the same parity is even. This means there exists some integer $k$ such that the path length equals $2k$. If we then travel from $v_{b}$ to $v_{a}$ via the edge that connects them, the path length becomes $2k+1$. However this leads to a contradiction as we now have an odd-length cycle.
+\end{itemize}
+
+Thus, every edge connects a vertex in $U$ to one in $V$ and vice versa, so $G$ is bipartite.\qed
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+A simple graph is said to be $k$-colorable if there is a function $f:V \to [k]$ such that for any edge $(a, b)$, $f(a) \neq f(b)$.
+\end{problem*}
+
+\begin{problem} a
+Show that a simple graph is 2-colorable iff it is bipartite.
+\end{problem}
+
+($ \Rightarrow $) Let $ G$ be a 2-colorable graph, meaning all vertices get one of two colors and no vertices that share an edge have the same color. Let $ U$ be the set of vertices with the first color, and let $ V$ be the set of vertices with the second color. No vertices are in both sets, both sets comprise all vertices, and every edge connects vertices of different colors. Thus $ G$ is bipartite.
+
+\
+
+($ \Leftarrow $) Let $ G$ be a bipartite graph. Divide the vertices into two disjoint and independent sets, $U$ and $V$, such that every edge connects a vertex in $U$ to one in $V$. Coloring the vertices in $ U$ the first color and $ V$ the second color ensures vertices that share an edge have different colors, and thus is a valid 2-coloring.\qed
+
+\
+
+\begin{problem} b
+$\dagger$ Show that a simple graph whose vertices all have degree at most $k$ is $(k+1)$-colorable.
+\end{problem}
+
+Let $ P( n)$ be the statement that a simple graph whose vertices all have degree at most $ n$ is $(n+1)$-colorable. $ P( 1)$ is true, as a single vertex must have degree zero and is 1-colorable.
+
+\
+
+Suppose $ P( k)$ is true for some natural number $ k\geq 1$. Take a simple graph with $ k+2$ vertices and degree at most $ k+1$ (eg star graph $ S_{k+1})$. If we remove one vertex, it is still a simple graph but the degree is now at most $ k$, thus $ P( k)$ implies it is $ ( k+1)$-colorable. We can now re-add the vertex (and edges) back to the graph and color the vertex differently from all other verticies to ensure a valid coloring. This yields a simple graph with degree at most $ k+1$ that is $ ( k+2)$-colorable, so $ P( k+1)$ follows. Thus by induction, $P(n)$ holds for all $n \in \nats$. \qed 
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
