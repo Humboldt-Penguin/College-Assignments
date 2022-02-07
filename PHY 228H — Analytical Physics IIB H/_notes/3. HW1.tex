@@ -1,0 +1,178 @@
+% Feel free to contact me for any reason:
+%% Email 1: zain.kamal@rutgers.edu
+%% Email 2: z.kamal2021@gmail.com
+%% Discord: alci#6038
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\input{Structures/structure_2}
+\begin{document}
+\chead{\textbf{Physics 228: HW 1 Notes}}
+\rhead{1/30/22}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{\underline{(1)}}
+\begin{equation*}
+v=\vec{E} \times \vec{B}
+\end{equation*}
+
+\
+
+\hline
+
+\textbf{\underline{(2-3)}}
+
+high index of refraction $\Longleftrightarrow $ more aligned with normal
+
+\
+
+\hline
+
+\textbf{\underline{(4)}}
+
+\begin{example}
+
+What inductance must be connected to a 18 pF capacitor in an oscillator capable of generating 600 nm (i.e., visible) electromagnetic waves? Comment on your answer.
+
+\end{example}
+
+
+
+Relating frequency and wavelength of EM wave:
+\begin{equation*}
+\boxed{c=f\lambda } .
+\end{equation*}
+
+
+Frequency of oscillation of current in LC circuit:
+\begin{equation*}
+\boxed{f=T^{-1} =\frac{1}{2\pi \sqrt{LC}}} .
+\end{equation*}
+Thus:
+\begin{align*}
+2\pi \sqrt{LC} & =\frac{\lambda }{c} .
+\end{align*}
+\textit{Note: }$c=3\times 10^{8} \ m/s$.
+
+
+
+My mistake was forgetting that $T=\frac{1}{f}$.
+
+
+\
+
+
+\hline
+
+\textbf{\underline{(5)}}
+
+\begin{example}
+
+What is the intensity of a traveling plane electromagnetic wave if Bm is 4.8 ✕ 10−4 T?
+
+\end{example}
+
+
+
+"Intensity" = Average of the Poynting vector:
+\begin{align*}
+I=\langle S\rangle  & =\frac{1}{2\mu _{0}} E_{0} B_{0}
+\end{align*}
+\textit{Note: }$\mu _{0} =1.26\times 10^{-6} \ H/m$.
+
+
+\
+
+
+\hline
+
+\textbf{\underline{(6)}}
+
+Power is given by:
+\begin{align*}
+\Aboxed{P & =\frac{E}{\Delta t}} .
+\end{align*}
+
+
+Not needed for this problem, but energy of a photon is given by:
+\begin{align*}
+E & =hf\\
+ & =h\frac{c}{\lambda } .
+\end{align*}
+\textit{Note: }$h=6.626\times 10^{-34} \ J\cdot s$
+
+\
+
+
+
+\hline
+
+\textbf{\underline{(7)}}
+
+Imagine a source of power is radiating waves isotropically, which means equally in all directions. At a distance $r$, all of the radiated power is radiated through a sphere with area $4\uppi r^{2}$. So the intensity at $r$ from the source is:
+\begin{equation*}
+\boxed{I=\frac{P}{A} =\frac{P}{4\pi r^{2}}} .
+\end{equation*}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=6cm]{images/hw1.1.png}
+\end{figure}
+
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=6cm]{images/hw1.2.png}
+\end{figure}
+
+\textit{\href{https://www.animations.physics.unsw.edu.au/jw/waves\_power.htm}{(Source)}}
+
+
+\
+
+
+\hline
+
+\textbf{\underline{(11)}}
+
+Critical angle is the angle of incidence that provides an angle of refraction of 90-degrees:
+\begin{equation*}
+\boxed{\theta _{crit} =\sin^{-1}\left(\frac{n_{2}}{n_{1}}\right)} .
+\end{equation*}
+Note: be careful about where the ray is originating from when assigning $n_{2}$ and $n_{1}$.
+
+
+\clearpage
+\
+
+\hline
+
+\textbf{\underline{(12)}}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=6cm]{images/hw1.3.png}
+\end{figure}
+
+$\theta _{c}$ represents the critical angle where any transmitted light is parallel to the surface ($\theta _{t} =90$). Effectively, this means that all light is reflected:
+\begin{equation*}
+\theta _{c} =\sin^{-1}\left(\frac{n_{outside}}{n_{inside}}\right) .
+\end{equation*}
+From the right angle, we easily see:
+\begin{equation*}
+\theta _{r} =90-\theta _{c} .
+\end{equation*}
+Finally, we find $\theta _{i}$ with Snell's Law:
+\begin{equation*}
+\theta _{i} =\sin^{-1}\left(\frac{n_{inside}\sin \theta _{r}}{n_{outside}}\right) .
+\end{equation*}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

@@ -1,0 +1,125 @@
+% Feel free to contact me for any reason:
+%% Email 1: zain.kamal@rutgers.edu
+%% Email 2: z.kamal2021@gmail.com
+%% Discord: alci#6038
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\input{Structures/structure_2}
+\begin{document}
+\chead{\textbf{Math 244: Lecture Notes 2}}
+\rhead{1/20/22}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Slope Fields}
+
+Given a family of functions representing the solutions to an ODE, we can visualize the differential equation itself as a slope field that describes the ``flow" (tangent vectors) in $\mathbb{R}^{2}$. 
+
+
+For example, consider the first order ODE $y'=t$ with the solution $y=\tfrac{1}{2} t^{2} +C$:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{images/slope fields.png}
+\end{figure}
+
+\
+\hline
+\section{Separable ODEs}
+
+Recall that the explicit form of first-order (linear) ODEs is:
+\begin{equation*}
+y'=f( t,y) .
+\end{equation*}
+
+
+Similarly, \underline{separable ODEs} take the explicit form:
+\begin{equation}
+\boxed{y'=g( t) \ h( y)} .
+\end{equation}
+Note that the obvious implication of this is that not all first-order ODEs are separable.
+
+
+\subsection{Nonlinear Separable ODEs (Procedure to Solve)}
+
+Note that if $h( y_{0}) =0$, then $y_{0}$ is a solution of (1): the RHS is forced to be 0, and the LHS is 0 because the derivative of a constant ($y_{0}$) is 0. 
+
+
+
+To find \textbf{non-constant} solutions, we take a similar approach to section 2.1 in Lecture Notes 1, and rewrite (1):
+\begin{align*}
+\frac{dy}{dt} & =g( t) \ h( y)\\
+\int \frac{dy}{h( y)} & =\int g( t) \ dt\\
+a( y) & =b( t) . \numberthis
+\end{align*}
+This is called the \underline{implicit solution}, which effectively eliminates the derivative in favor of arbitrary functions in terms of $y$ and $t$. Finally, we can solve for some $y=y( t)$.
+
+\
+
+\textbf{Note 2.1.A:} If we're given some \underline{IVP} (initial value proposition $y( t_{0}) =y_{0}$), we can fully define our general solution (ie find a value of $C$),,,
+
+Be sure to define an interval for the domain of $t$ to avoid indeterminate solutions (eg div by 0). The interval \textbf{must} be ``connected'' to the IVP (see 2.1.2). [WHY THE FUCK??? ASK IN RECITATION]
+
+\begin{example}
+
+\textit{Problem:} Solve $y'=t^{2} y^{2}$. 
+
+\textit{Solution:}
+
+$y'$ is \textit{separable}, with $\begin{cases}
+g( t) =t^{2}\\
+h( y) =y^{2}
+\end{cases}$.
+
+
+
+To find \textit{constant solutions}, let $h( y) =y^{2} =0$. Thus $y=0$.
+
+
+
+For \textit{general solutions} ($y\neq 0$), find the implicit form:
+\begin{align*}
+\int \frac{dy}{y^{2}} & =\int t^{2} \ dt\\
+\frac{-1}{y} & =\frac{t^{3}}{3} +C_{1}\\
+\Longrightarrow y & =\frac{-3}{t^{3} +C} .
+\end{align*}
+Thus, $y_{gen} =\left\{0,\ \frac{-3}{t^{3} +C}\right\}$.
+
+\end{example}
+\
+
+\begin{example}
+
+\textit{Problem:} 
+$\begin{cases}
+y'=( 1-2x) y^{2}\\
+y( 0) =\tfrac{-1}{6}
+\end{cases}$
+
+\textit{Solution:}
+
+For $y\neq 0$,
+\begin{align*}
+\int \tfrac{dy}{y^{2}} & =\int ( 1-2x) \ dx\\
+y & =\frac{-1}{x-x^{2} +C} .
+\end{align*}
+Our IVP implies $C=6$. Thus $y( x) =\frac{1}{( x-3)( x+2)}$.
+
+
+
+Since $x\neq 3$ and $x\neq -2$, we may naively conclude that the domain of $y$ is $( -\infty ,-2) \cup ( -2,3) \cup ( 3,\infty )$. However, with Note 2.1.A in mind, we know the interval must be ``connected" to $x_{0} =0$, as defined by our IVP. Thus, the domain of $y$ is $( -2,3)$.
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

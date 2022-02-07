@@ -1,0 +1,64 @@
+% Feel free to contact me for any reason:
+%% Email 1: zain.kamal@rutgers.edu
+%% Email 2: z.kamal2021@gmail.com
+%% Discord: alci#6038
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\input{Structures/structure_2}
+\begin{document}
+\chead{\textbf{Math 244: Lecture Notes 3}}
+\rhead{2/2/22}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Standard Form for Linear Equations}
+
+Given $F( t,y,y') =0$, an equation where $y$ and $y'$ are linear, we can separate coefficients to find the standard form:
+\begin{equation}
+\boxed{y'+p( t) y=g( t)} .
+\end{equation}
+\
+\subsection{Separable Case}
+
+If $g( t) =0$, note that our linear equation also becomes \textbf{separable} ($y'+p( t) y=0$), which we can easily solve to yield the general solution:
+\begin{equation}
+\boxed{y_{gen} =Ce^{-\int p( t) \ dt}} .
+\end{equation}
+\
+\subsection{Non-Separable Case}
+
+Consider an equation of form eq (1). We choose some ``\underline{integrating factor}" $\mu ( t) \neq 0$ (shortened to $\mu $) such that \ $\mu '=p( t) \mu $. This property allows us to modify eq (1) as follows:
+\begin{align*}
+y'+p( t) y & =g( t)\\
+y'\mu +p( t) \mu y & =g( t) \mu \\
+y'\mu +\mu 'y & \\
+( y\mu ) ' & \\
+y\mu  & =\int \mu ( t) g( t) \ dt.
+\end{align*}
+This gives us the general equation:
+\begin{equation}
+\boxed{y_{gen} =\frac{1}{\mu ( t)}\int \mu ( t) g( t) \ dt.}
+\end{equation}
+Knowing $\mu '=p( t) \mu $, we can readily find:
+\begin{equation}
+\boxed{\mu ( t) =e^{\int p( t) \ dt} .}
+\end{equation}
+\
+\newpage
+\subsection{Examples}
+
+2lazy2type lol, just look at the red boxes for things to note:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=12cm]{images/3.1.png}
+\end{figure}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

@@ -1,0 +1,241 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\input{Structures/structure_2}
+\begin{document}
+\chead{\textbf{Homework 2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+
+\begin{problem} a
+What set (that we know) is $\bigcup _{x \in \mathbb{Z}} \{x, x + 1, x + 2\}$?
+\end{problem}
+
+This is equal to the set of all integers, $\mathbb{Z}$. 
+
+This is because $\bigcup \limits_{x \in \mathbb{Z}} \{x\} = 
+\bigcup \limits_{x \in \mathbb{Z}} \{x + 1\} =
+\bigcup \limits_{x \in \mathbb{Z}} \{x + 2\} =
+\mathbb{Z}$. Redundancies are removed in sets.
+
+
+\
+
+
+\begin{problem} b
+What set (that we know) is $\bigcup _{n \in \nat} (-n, n)$?
+\end{problem}
+
+This is equal to the set of all real numbers, $\reals$.
+
+
+\
+
+\begin{problem} c
+What set is $\bigcap _{n \in \nat} (-n, n)$? Use formal set builder notation to describe it.
+\end{problem}
+
+$\{ x \in \reals \mid (x > -1) \land (x < 1) \} = (-1,1)$.
+
+\
+
+\begin{problem} d
+What set is $\bigcup_{n = 2} ^\infty [0, 1 - 1/n)$ \verb+(\bigcup_{n = 2} ^\infty [0, 1 - 1/n))+?
+\end{problem}
+
+$\{ x \in \reals \mid ( x \geq 0 ) \land (x < 1) \} = [0,1)$.
+
+
+\
+
+\begin{problem} e
+What set is $\bigcup_{x \in \mathbb{Z}} \left( \bigcup_{n = 2} ^\infty [x, x + 1 - 1/n) \right)$? Express your answer as simply as possible.
+\end{problem}
+
+This is equal to $\reals$.
+
+The problem simplifies to $\bigcup \limits_{x \in \mathbb{Z}} \{[x, x+1)\} = (-\infty, \infty)$.
+
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{} 
+
+\begin{problem*}
+For the sets in problem 1, find the complement of each set with respect to $\mathbb{R}$. (Recall that the complement of $A$ with respect to $B$ is every element in $B$ that is not in $A$)
+\end{problem*}
+
+\begin{problem} a
+$\mathbb{Z}^C$.
+\end{problem}
+
+$\{ x \in \reals \mid x \notin \mathbb{Z} \} = \bigcup \limits_{x \in \mathbb{Z}} (x, x+1)$.
+
+\textit{Question from student: of the two above, which method is better?}
+
+\
+
+\begin{problem} b
+$\reals ^C$
+\end{problem}
+
+$\varnothing$.
+
+\begin{problem} c
+$(-1,1)^C$
+\end{problem}
+
+$\{ x \in \reals \mid (x \leq -1) \lor (x \geq 1) \} = (-\infty, -1] \cup [1, \infty)$.
+
+\
+
+\begin{problem} d
+$[0,1)^C$.
+\end{problem}
+
+$\{ x \in \reals \mid (x < 0) \lor (x \geq 1) \} = (-\infty, 0) \cup [1, \infty)$.
+
+\
+
+\begin{problem} e
+$\reals ^C$.
+\end{problem}
+
+$\varnothing$.
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem} a
+Prove that the cardinality of $|A \times B|$ is $|A| \cdot |B|$, assuming that $A$ and $B$ are finite. It does not have to be particularly rigorous.
+\end{problem}
+
+The definition of the cartesian product is $A \times B = \{ (a,b) \mid a \in A, b \in B \}$. We have $|A|$ unique options for $a$, and for each of those $a$, we have $|B|$ unique options for $b$. Therefore, there are $|A| \cdot |B|$ unique elements in $A \times B$ — in other words, $|A \times B| = |A| \cdot |B|$.
+
+\
+
+\begin{problem} b
+What is the cardinality of $\mathcal{P}(\mathcal{P}(\mathcal{P}(\mathcal{P}(\varnothing))))$? What about if I apply the powerset function to the empty set $n$ times in general?
+\end{problem}
+
+$|\mathcal{P}(\mathcal{P}(\mathcal{P}(\mathcal{P}(\varnothing))))| = 16$.
+
+Recall that for an arbitrary finite set $A$, $|\mathcal{P}(A)| = 2^{(|A|)}$. If we were to apply the powerset function again, we'd get $| \powerset ( \powerset (A) ) | = 2^{(| \powerset (A) |)} = 2^{(2^{(|A|)})}$. In our case, $A = \varnothing$, so $|A|=0$, which makes $2^{(2^{(|A|)})}=2$.
+
+
+Generalizing this, applying the powerset function $n$ times to the empty set yields a set with cardinality $2^{\iddots ^ 2}$, where $2$ appears $n-1$ times (or in ``\href{https://en.wikipedia.org/wiki/Tetration}{tetration}'' notation, $^{(n-1)} 2$).
+
+This is clear by manually calculating each nested powerset:
+
+\begin{itemize}
+    \item $|\varnothing| = 0$,
+    \item $|\powerset (\varnothing)| = 2^0 = 1$,
+    \item $|\powerset ( \powerset ( \varnothing) )| = 2^{2^0} = 2$,
+    \item $|\powerset ( \powerset ( \powerset ( \varnothing) ) )| = 2^{2^{2^0}} = 4$,
+    \item $|\powerset ( \powerset ( \powerset ( \powerset ( \varnothing) ) ) )| = 2^{2^{2^{2^0}}} = 16$.
+\end{itemize}
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem} a
+Prove that $(A \setminus B) \subseteq A$.
+\end{problem}
+
+% By Definition 2.17, $A \setminus B := \lrbrace{a \in A \mid a \notin B}$. Thus, it follows that 
+
+% Let $x \in (A \setminus B)$. By the definition of the set difference, we know that $\lrbrace{x \in A \mid x \notin B}$. 
+
+By Definition 2.17, $A \setminus B := \lrbrace{x \in A \mid x \notin B}$. Thus it trivially follows that $x$ is an element of $A$. Because an arbitrary element of $A \setminus B$ is necessarily an element of $A$, we can conclude $A \setminus B \subseteq A$. 
+
+% In the case $B = \varnothing$, $x$ will never be an element of $B$. Therefore, our equation for the set difference simplifies to $A \setminus B := \lrbrace{x \in A} = A$.
+
+% Because $A \setminus B \subset A$ and it is possible for $A \setminus B =A$, we can conclude $A \setminus B \subseteq A$.
+
+\
+
+\begin{problem} b
+Prove the first DeMorgan's law for sets that I listed above: \[(A\cup B)^C = A^C \cap B^C.\]
+\end{problem}
+
+Let $x \in (A \cup B)^C$. 
+
+Then $x \notin (A \cup B)$,
+
+$(x \notin A) \land (x \notin B)$,
+
+$(x \in A^C) \land (x \in B^C)$,
+
+$x \in (A^C \cap B^C)$.
+
+Therefore, $(A \cup B)^C \subseteq (A^C \cap B^C)$.
+
+\
+
+Let $y \in (A^C \cap B^C)$.
+
+Then $(y \in A^C) \land (y \in B^C)$,
+
+$(y \notin A) \land (y \notin B)$,
+
+$y \notin (A \cup B)$,
+
+$y \in (A \cup B)^C$.
+
+Therefore $(A^C \cap B^C) \subseteq (A\cup B)^C$.
+
+\
+
+$(A \cup B)^C \subseteq (A^C \cap B^C)$ and $(A^C \cap B^C) \subseteq (A\cup B)^C$, so $(A\cup B)^C = A^C \cap B^C$.
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Define the \textbf{symmetric difference} of two sets $A,B$ as follows: \[A\triangle B:= (A\setminus B)\cup (B\setminus A).\] Prove that $A\triangle B=(A\cup B)\setminus (A\cap B)$. 
+\end{problem*}
+
+\begin{itemize}
+    \item We begin with the definition of the symmetric difference: \\ 
+    $(A \setminus B) \cup (B \setminus A)$.
+    \item By the definition of set minus: \\
+    $(A \cap B^C) \cup (B \cap A^C)$.
+    \item By distribution [of form $P \cup (Q \cap R)$, where $P=(A \cap B^C)$, $Q=B$, and $R=A^C$]: \\
+    $((A \cap B^C) \cup B) \cap ((A \cap B^C) \cup A^C)$.
+    \item By distribution [of form $(P\cap Q) \cup R$]: \\
+    $((A \cup B)\cap(B^C \cup B))\cap((A \cup A^C)\cap(B^C \cup A^C))$.
+    \item By law of excluded middle and definition of truth: \\
+    $(A \cup B) \cap (B^C \cup A^C)$.
+    \item By commutivity of union: \\
+    $(A \cup B) \cap (A^C \cup B^C)$.
+    \item By definition of set minus: \\
+    $(A \cup B) \setminus (A^C \cup B^C)^C$.
+    \item By DeMorgan's first law for sets: \\
+    $(A \cup B) \setminus (A \cap B)$.
+\end{itemize}
+
+Therefore, we find that $A\triangle B = (A\setminus B)\cup (B\setminus A) = (A \cup B) \setminus (A \cap B)$. \quad \qedsymbol
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+\begin{problem*}
+We can perform unions and intersections without an indexing set, as well. For example, we can write \[\bigcup_{X \in \mathcal{P}(A)} X = A.\] (You can prove this to yourself if you'd like). Now let's define the following set: \[\mathcal{T}_A := \{X \subseteq A \mid |X| = 2\}.\] We say this set is \textit{parameterized} by a set $A$. Now, for which $A$ is the union \[\bigcup_{X \in \mathcal{T}_A} X = A?\]
+\end{problem*}
+
+$\bigcup \limits_{X \in \mathcal{T}_A} X = A$ for all $A$ with a cardinality greater than or equal to 2.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

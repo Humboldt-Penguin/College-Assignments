@@ -1,0 +1,277 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\input{Structures/structure_2}
+\begin{document}
+\chead{\textbf{Homeworm 6}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Consider $[5]=\{1,2,\dots,5\}$. Give an example of, or show that such a request impossible, a nonempty relation on $[5]$ that is:
+\end{problem*}
+
+Let $a,b,c \in [5]$.
+
+\begin{problem} a
+not symmetric, but reflexive and transitive.
+\end{problem}
+
+$a \leq b$:
+\begin{itemize}
+\item Reflexive: $ a\leq a$.
+\item Not Symmetric: $ a\leq b\not \Rightarrow b\leq a$.
+\item Transitive: $ (a\leq b)\land (b\leq c)\Rightarrow a\leq c$.
+\end{itemize}
+
+Another example is ``$a$ divides $b$''.
+
+\
+
+\begin{problem} b
+not transitive, but reflexive and symmetric.
+\end{problem}
+
+$|a-b|\leq 1$
+\begin{itemize}
+\item Reflexive: $|a-a|=0\leq 1$.
+\item Symmetric: $|a-b|\leq 1\Rightarrow |b-a|\leq 1$, because the relationship essentially says that the numbers are either equal or consecutive.
+\item Not transitive, example: $a=1,b=2,c=3$.
+\end{itemize}
+
+\
+
+\begin{problem} c
+not reflexive, but symmetric and transitive.
+\end{problem}
+
+$( a-3)( b-3)  >0$
+
+\textit{(An easier way to think of this is }$ab >0$\textit{ "shifted to the right by 3".)}
+\begin{itemize}
+\item Not reflexive, example: $a=3$.
+\item Symmetric: $( a-3)( b-3)  >0\Rightarrow ( b-3)( a-3)  >0$ 
+\begin{itemize}
+\item Because $( a-3)( b-3) =( b-3)( a-3)$.
+\end{itemize}
+\item Transitive: $(( a-3)( b-3)  >0) \land (( b-3)( c-3)  >0) \Rightarrow ( a-3)( c-3)  >0$
+\begin{itemize}
+\item Because the premise is only true if $a,b,c\in \{1,2\}$ or $a,b,c\in \{4,5\}$.
+\end{itemize}
+\end{itemize}
+
+\
+
+\begin{problem} d
+both symmetric and antisymmetric.
+\end{problem}
+
+$ a=b$:
+\begin{itemize}
+\item Symmetric: $ a=b\Rightarrow b=a$.
+\item Antisymmetric: $ ( a=b) \land ( b=a) \Rightarrow ( a=b)$.
+\end{itemize}
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Determine if each of the following relation on a set $A$ is an equivalence relation or not. If so, exhibit the equivalence classes. Justify each
+\end{problem*}
+
+\begin{problem} a
+$A=\mathbb{R}^2$, $(a,b) R(c,d)$ if $a^2+b^2=c^2+d^2$
+\end{problem}
+
+
+\begin{itemize}
+\item Reflexive: $a^{2} +b^{2} =a^{2} +b^{2}$, so $(a,b)R(a,b)$.
+\item Symmetric: $\left( a^{2} +b^{2} =c^{2} +d^{2}\right)$ implies $\left( c^{2} +d^{2} =a^{2} +b^{2}\right)$, so $(a,b)R(c,d)\Rightarrow (c,d)R(a,b)$.
+\item Transitive: $\left( a^{2} +b^{2} =c^{2} +d^{2}\right)$ and $\left( c^{2} +d^{2} =e^{2} +f^{2}\right)$ implies $\left( a^{2} +b^{2} =e^{2} +f^{2}\right)$, so $(a,b)R(c,d)\land(c,d)R(e,f)\Rightarrow (a,b)R(e,f)$.
+\end{itemize}
+
+Therefore $ R$ is an equivalence relation. The equivalence class of an ordered pair $(a,b) \in A$ consists of the set of all ordered pairs $(c,d)\in A$ such that $a^2+b^2=c^2+d^2$.
+\begin{align*}
+[(a,b)] & =\{( c,d) \in A\mid ( c,d) R( a,b)\}\\
+ & =\left\{( c,d) \in \mathbb{R}^{2} \mid c^{2} +d^{2} =a^{2} +b^{2}\right\} .
+\end{align*}
+
+\
+
+\begin{problem} b
+$A=\mathbb{Q}$, $R=\varnothing$ the empty relation.
+\end{problem}
+
+Let $ a,b,c\in \mathbb{Q}$.
+\begin{itemize}
+\item Not reflexive: $ ( a,a) \notin \varnothing $.
+\item Symmetric: $ ( a,b) \in \varnothing \Rightarrow ( b,a) \in \varnothing $ is vacuously true. 
+\item Transitive: $ (( a,b) \in \varnothing ) \land (( b,c) \in \varnothing ) \Rightarrow ( a,c) \in \varnothing $ is vacuously true.
+\end{itemize}
+
+It is not reflexive, so $ R=\varnothing $ is not an equivalence relation.
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Prove or disprove the converse of Proposition 6.9: that is, a partition $\mathcal{A}$ on $A$ induces an equivalence relation on $A$ by $x\sim y$ if and only if there exists some $B\in\mathcal{A}$ such that $B$ contains both $x$ and $y$.
+\end{problem*}
+
+Let the partition on $A$ be $\mathcal{A}$, and let $\sim $ be the relation induced by $\mathcal{A}$. 
+
+
+
+Pick some $a\in A$. The union of partitions in $\mathcal{A}$ equals $A$, so there exists a partition $A_a$ such that $a \in A_a$. Therefore $a\sim a$, and the relation is reflexive. 
+
+
+
+Pick some $a,b\in A$ such that $a\sim b$. Then there exists a partition $A_{x}$ such that $a,b\in A_{x}$. Therefore $b\sim a$, so the relation is symmetric.
+
+
+
+Pick some $a,b,c\in A$ such that $a\sim b$ and $b\sim c$. Then there exist partitions $A_{x}$ and $A_{y}$ such that $a,b\in A_{x}$ and $b,c\in A_{y}$. We know $A_{x} \in A$ and $A_{y} \in A$, so either $A_{x} =A_{y}$ or $A_{x} \cap A_{y} =\varnothing $. But we know $b\in A_{x}$ and $b\in A_{y}$, so $A_{x} =A_{y}$. Therefore $a$ and $c$ are in the same partition, so $a\sim c$, and the relation is transitive.
+
+
+
+The relation $\sim $ is reflexive, symmetric, and transitive, so it is an equivalence relation. 
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Consider the relation $D\coloneqq \{(a,b)\in \mathbb{N}\times \mathbb{N}\mid a\text{ divides }b\}$. Show that $D$ is a partial ordering. 
+\end{problem*}
+
+Pick some $a,b,c\in \mathbb{N}$.
+
+
+
+We know $a$ divides $a$ because there exists an integer $k$ such that $a=ka$, which is $k=1$. Therefore the relation is reflexive
+
+
+
+If $a$ divides $b$, then there exists an integer $k$ such that $a=kb$. Similarly, if $b$ divides $a$, then there exists an integer $k'$ such that $b=k'a$. Combining these yields $a=k( k'a)$, which implies $kk'=1$. Because $a,b\in \mathbb{N}$, we know $k$ and $k'$ are positive. So $k=k'=1$. Thus $a=b$, meaning the relation is anti-symmetric.
+
+
+
+If $a$ divides $b$, then there exists an integer $k$ such that $a=kb$. Similarly, if $b$ divides $c$, then there exists an integer $k'$ such that $b=k'c$. Combining these yields $a=k( k'c)$. The product of two integers is an integer, so there exists some integer $k''=kk'$ such that $a=k''c$. Thus $a$ divides $c$, meaning the relation is transitive.
+
+
+
+The relation is reflexive, anti-symmetric, and transitive, so it is a partial ordering.
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+This problem will deal with what we call a total ordering. 
+
+\textbf{Definition 6.16:} A \textbf{total ordering}, or a \textbf{linear ordering} is a partial ordering such that any two elements are comparable; that is, for any $a$ and $b$, either $a \prec b$ or $b \prec a$.
+        
+
+Suppose $A$ and $B$ are two sets, with total orderings $\prec_A$ and $\prec_B$ respectively. Define 
+\[
+    \prec_L := \{((a, b), (c, d)) \mid (a \neq c \land a \prec_A c) \lor (a = c \land b \prec_B d) \},
+\]
+and
+\[
+    \prec_P := \{((a, b), (c, d)) \mid a \prec_A c \land b \prec_B d \}.
+\]
+
+
+\textbf{Note 6.17:} $\prec_L$ is known as the lexicographic ordering, and $\prec_P$ is known as the product ordering.
+\end{problem*}
+
+\begin{problem} a
+Describe in your own words how $\prec_L$ and $\prec_P$ work. 
+\end{problem}
+
+% $\prec_L$: Lexicographic ordering compares two two-tuples ($(a,b)$ and ($c,d)$) in order. If the first elements of each 2-tuple are not equal ($a\neq c$), compare with $\prec_A$ ($a \prec_A c$). Else, compare the second elements with $\prec_B$ ($b \prec_B d$).
+
+$\prec_L$: We can use lexicographic ordering to sort in ``increasing'' order by grouping together all 2-tuples with the same first element, sorting those according to $\prec _{A}$ on the first elements, then sorting each of those groups by $\prec _{B}$ on the second elements. 
+
+For example, if $A=B=[ 3]$ and $\prec _{A}$ and $\prec _{B}$ both functioned as $< $, then $\prec _{L}$ would order:
+\begin{equation*}
+( 1,1) ,( 1,2) ,( 1,3) ,\quad ( 2,1) ,( 2,2) ,( 2,3) ,\quad ( 3,1) ,( 3,2) ,( 3,3)
+\end{equation*}
+similar to a table of contents. Note that the first and second element of each two-tuple come from different sets which can be ordered in different ways.
+
+\
+
+$\prec_P$: In an ``increasing'' ordering of 2-tuples, both elements must "increase" according to $\prec_A$ and $\prec_B$ respectively when compared to the previous 2-tuple.
+
+
+% Product ordering compares two two-tuples. The relation is true if the first elements are ordered by $\prec_A$ and the second elements are ordered by $\prec_B$.
+
+\
+
+\begin{problem} b
+Show that $\prec_P$ is a partial ordering. 
+\end{problem}
+
+We know $\prec _{A}$ and $\prec _{B}$ are partial orderings themselves by definition.
+
+Reflexive: $a\prec _{A} a$ and $b\prec _{B} b$ are true by reflexivity of $\prec _{A}$ and $\prec _{B}$, therefore $( a,b) \prec _{P}( a,b)$.
+
+Anti-symmetric: $a\prec _{A} c$ implies $c\prec _{A} a$ by anti-symmetry of $\prec _{A}$. Same applies to $b,d,$ and $\prec _{B}$. Therefore $(( a,b) \prec _{P}( c,d)) \land (( c,d) \prec _{P}( a,b)) \Rightarrow ( a,b) =( c,d)$.
+
+Transitive: $a\prec _{A} c$ and $c\prec _{A} e$ implies $a\prec _{A} e$ by transitivity of $\prec _{A}$. Same applies to $b,d,f,$ and $\prec _{B}$. Therefore $(( a,b) \prec _{P}( c,d)) \land (( c,d) \prec _{P}( e,f)) \Rightarrow ( a,b) \prec _{P}( e,f)$.
+
+\
+
+\begin{problem} c
+Show that $\prec_P \subseteq \prec_L$.
+\end{problem}
+
+Choose some $a,b,c,d$ such that $( a,b) \prec _{P}( c,d)$. This means $a\prec _{A} c$ and $b\prec _{B} d$. Thus we know the condition for $\prec _{L}$ ($(a\neq c\land a\prec _{A} c)\lor (a=c\land b\prec _{B} d)$) must be true, as either $a=c$ or $a\neq c$ must be true. Therefore $( a,b) \prec _{P}( c,d)$ necessarily implies $( a,b) \prec _{L}( c,d)$.
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Let $A$ be a nonempty set, and consider $\mathcal{P}(A)$ with $\subseteq$ being the partial ordering. Let $\mathcal{A}$ is any family of subsets of $A$. Find $\sup \mathcal{A}$ and $\inf\mathcal{A}$ and prove your answers.
+\end{problem*}
+
+We're given $\mathcal{A} \subseteq \mathcal{P}( A)$. By the definition of a powerset, for all $X\in \mathcal{A}$, we also know $X \in \mathcal{P}( A)$, so $X$ is necessarily a subset of $A$. Thus $A$ is an upper upper bound for $\mathcal{A}$. We also know $A\in \mathcal{P}( A)$, so it is possible for $\mathcal{A} =A$. Therefore $A$ is the \textit{least} upper bound for $\mathcal{A}$. Thus, $\sup \mathcal{A} =A$.
+
+
+
+The empty set is a subset of all sets, so $\varnothing \subseteq \mathcal{A}$. We know for all $X\in \mathcal{A}$, $\varnothing \subseteq X$, so $\varnothing $ is a lower bound of $\mathcal{A}$. We also know $\varnothing \in \mathcal{P}( A)$, so it is possible for $\varnothing =\mathcal{A}$. Therefore $\varnothing $ is a \textit{least} lower bound of $\mathcal{A}$ (this is also because there are no other lower boudns for $\mathcal{A}$). Thus, $\inf\mathcal{A} =\varnothing $.
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}
+
+\begin{problem*}
+Let $A$ be a nonempty set, and consider $\mathcal{S}=\{\mathcal{A}\subseteq\mathcal{P}(A)\mid \mathcal{A}\text{ is a partition of }A\}$. Define a relation $\preceq$ on $\mathcal{S}$ by $\mathcal{B}\preceq \mathcal{C}$ if for each $C\in\mathcal{C}$, there exists some $B\in\mathcal{B}$ such that $C\subseteq B$. In this case, we say that $\mathcal{C}$ is a \textbf{refinement} of $\mathcal{B}$. Show that $\preceq$ defines a partial order on $\mathcal{S}$. What is the maximal element? 
+\end{problem*}
+
+Reflexive: For all $B\in \mathcal{B}$, $B\subseteq B$ (because $B=B$), so $\mathcal{B} \preceq \mathcal{B}$.
+
+Anti-symmetric: If $\mathcal{B} \preceq \mathcal{C}$, then either $\mathcal{B} =\mathcal{C}$ or there exists some $C\in \mathcal{C}$ such that, for the unique $B\in \mathcal{B}$ such that $C\subseteq B$, we have $C\subset B$ (note that $B$ and $C$ are unique because we're dealing with partitions). The latter option is ruled out by $\mathcal{C\preceq B}$ because then we would also need $B\subseteq C$, so $\mathcal{B} =\mathcal{C}$.
+
+Transitive: The relation $\mathcal{C} \preceq \mathcal{D}$ implies that for all $D\in \mathcal{D}$, there exist some $C\in \mathcal{C}$ such that $D\subseteq C$. By similar notation, $\mathcal{B} \preceq \mathcal{C}$ implies $C\subseteq B$. The subset relation ``$\subseteq $'' is transitive, so $D\subseteq B$. Therefore $\mathcal{B} \preceq \mathcal{D}$.
+
+\
+
+The relation is reflexive, anti-symmetric, and transitive, so it is a partial ordering.
+
+\
+
+The maximal element or "most refined" set $\mathcal{M}$ is the set of singletons containing every unique element of $A$. This is because for all possible partitions of $A$ ($\mathcal{X} \in \mathcal{S}$), for all $M\in \mathcal{M}$, there must exist some $X\in \mathcal{X}$ such that $M\subseteq X$. 
+
+\
+\hline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

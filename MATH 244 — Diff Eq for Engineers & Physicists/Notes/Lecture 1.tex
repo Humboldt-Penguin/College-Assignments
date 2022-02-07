@@ -1,0 +1,137 @@
+% Feel free to contact me for any reason:
+%% Email 1: zain.kamal@rutgers.edu
+%% Email 2: z.kamal2021@gmail.com
+%% Discord: alci#6038
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\input{Structures/structure_2}
+\begin{document}
+\chead{\textbf{Math 244: Lecture Notes 1}}
+\rhead{1/18/22}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Preliminaries}
+\subsection{Resources}
+\begin{itemize}
+\item \textbf{\href{https://web.uvic.ca/\~tbazett/diffyqs/frontmatter-1.html}{Introduction to Differential Equations} (online textbook) by Trefor Bazett}
+
+\textit{(Note: this is the same as our class textbook but with videos and exercises)}
+\begin{itemize}
+\item \href{https://www.youtube.com/playlist?list=PLHXZ9OQGMqxde-SlgmWlCmNHroIWtujBw}{YT playlist}
+\end{itemize}
+\item \href{https://www.khanacademy.org/math/differential-equations}{Differential Equations (Khan Academy)}
+\end{itemize}
+
+
+\begin{itemize}
+\item \href{https://www.youtube.com/playlist?list=PLHXZ9OQGMqxfUl0tcqPNTJsb7R6BqSLo6}{Linear Algebra (Trefor Bazett, YT playlist)}
+\item \href{https://www.khanacademy.org/math/linear-algebra}{Linear Algebra (Khan Academy)}
+\end{itemize}
+
+
+\subsection{HW/Assignments}
+\href{https://sites.math.rutgers.edu/\~shtelen/Teaching/Spring-2022/244\%20Recommended\%20Problems.pdf}{Homework} is "required", but not submitted/graded.
+
+MATLAB assignments submitted on independent Canvas (\href{https://www.math.rutgers.edu/academics/undergraduate/courses/947-01-640-244-differential-equations-for-engineering-and-physics\#MATLAB}{information}).
+
+
+\subsection{Prerequisites}
+\begin{itemize}
+\item Functions
+\begin{itemize}
+\item Domain/range, basic classifications
+\end{itemize}
+\item Limits
+\begin{itemize}
+\item L'Hopital's rule
+\end{itemize}
+\item Differentiation/Integration
+\begin{itemize}
+\item \href{https://sites.math.rutgers.edu/\~shtelen/Teaching/FS.pdf}{Basic formula sheet}; know basic techniques/identities
+\end{itemize}
+\item Parametric Curves
+\item Linear Algebra:
+\begin{itemize}
+\item Matricies, determinants, systems of linear equations, eigenvalues/eigenvectors
+\end{itemize}
+\end{itemize}
+
+\
+\newpage
+\hline
+\section{Differential Equations}
+\subsection{Definition}
+
+Differential equations involve the derivative of some unknown function:
+\begin{equation}
+\frac{dx}{dt} =k\cdot x( t) .
+\end{equation}
+``Solving" a differential equation involves finding an equation for $\displaystyle x( t)$. There is usually a family of \textit{explicit} solutions and one \textit{general} solutions. The general solution for (1) is found by:
+% \begin{table}[!h]
+%         \centering
+        
+% \begin{tabular}{p{0.50\textwidth}p{0.50\textwidth}}
+ 
+% \begin{align*}
+% x( t) & =Ce^{kt}
+% \end{align*} & 
+% \begin{align*}
+% \int \frac{dx}{x( t)} & =\int k\ dt\\
+% \ln |x( t) | & =kt+C
+% \end{align*} \\
+
+% \end{tabular}
+        
+%         \end{table}
+\begin{align*}
+\int \frac{dx}{x( t)} & =\int k\ dt\\
+\ln |x( t) | & =kt+C\\
+x( t) & =Ce^{kt}.
+\end{align*}
+We can solve for $\displaystyle C$ when given some initial condition $\displaystyle x( t_{0}) =x_{0}$.
+
+
+\subsection{Classifications}
+\begin{itemize}
+\item \underline{Ordinary} vs. \underline{partial} (the function being differentiated is a function of how many variables?)
+\item \underline{Linear} vs. \underline{nonlinear} (is the function or its derivatives ever raised to a power?)
+\begin{itemize}
+    \item Note that $y^3y'$ is a nonlinear term.
+    \item \underline{Order}: greatest degree of a derivative.
+\end{itemize}
+\end{itemize}
+
+The explicit form of first-order (linear) ODEs is:
+\begin{equation}
+    \boxed{y'=f(t,y)}
+\end{equation}
+
+
+\subsection{Worked Example: Free Fall with Air Resistance}
+
+\begin{example}
+An object in free fall will experience the forces of gravity and air friction. Newton's second law tells us:
+\begin{align*}
+F_{net} & =F_{g} -F_{air}\\
+m\left(\tfrac{dv}{dt}\right) & =mg-kv\\
+ & \left(\text{let} \ b=\tfrac{k}{m}\right)\\
+\tfrac{dv}{dt} & =g-bv.
+\end{align*}
+At this point, we define $\displaystyle u:=g-bv$ and substitute $\displaystyle \tfrac{du}{dt} =-b\left(\tfrac{dv}{dt}\right)$:
+\begin{align*}
+\tfrac{-1}{b}\left(\tfrac{du}{dt}\right) & =u\\
+\tfrac{du}{dt} & =-bu,
+\end{align*}
+yielding a differential equation which can be solved to yield the general equation
+\begin{equation*}
+v( t) =\tfrac{1}{b}\left( g-Ce^{-bt}\right) .
+\end{equation*}
+\end{example}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

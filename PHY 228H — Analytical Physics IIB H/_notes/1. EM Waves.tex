@@ -1,0 +1,96 @@
+% Feel free to contact me for any reason:
+%% Email 1: zain.kamal@rutgers.edu
+%% Email 2: z.kamal2021@gmail.com
+%% Discord: alci#6038
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\input{Structures/structure_2}
+\begin{document}
+\chead{\textbf{1. EM Waves}}
+\rhead{Physics 228H}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{}
+
+See dynalist notes, transfer eventually (just main results, derivations probably aren't necessary for anything ever at all)
+
+\section{Energy of EM Waves: The Poynting Vector}
+
+Recall that the ``energy density" of an electromagnetic field is the potential energy per volume:
+\begin{equation}
+u=\frac{U}{V} =\tfrac{1}{2} \epsilon _{0} E^{2} +\tfrac{1}{2\mu _{0}} B^{2} ,
+\end{equation}
+which when combined with $E=cB$ from the previous lecture, yields:
+\begin{align*}
+u & =\tfrac{1}{2} \epsilon _{0} E^{2} +\tfrac{1}{2\mu _{0}}\tfrac{E^{2}}{c^{2}} ,\\
+ & \left[ use\ c=\tfrac{1}{\sqrt{\epsilon _{0} \mu _{0}}}\right]\\
+ & =\tfrac{1}{2} \epsilon _{0} E^{2} +\tfrac{1}{2\mu _{0}} \epsilon _{0} \mu _{0} E^{2}\\
+ & =\epsilon _{0} E^{2} .
+\end{align*}
+So $E$ and $B$ have the same energy density at any given moment in time ($u_{E} =u_{B}$). Neat!
+
+\
+
+Recall that for the plane wave, $\vec{E} \times \vec{B} =\vec{v}$. So we consider an EM plane wave that travels some distnace:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=6cm]{images/3.1.png}
+\end{figure}
+
+By taking the derivative of equation (1), we find:
+\begin{align*}
+dU & =u\cdot dV\\
+ & =\left( \epsilon _{0} E^{2}\right)( A\cdot c\ dt)\\
+\Rightarrow \frac{1}{A} \cdot \frac{dU}{dt} & =\epsilon _{0} cE^{2}\\
+ & [ use\ E=cB]\\
+ & =\epsilon _{0} cE( cB)\\
+ & =\epsilon _{0} c^{2} EB\\
+ & \left[ use\ c=\tfrac{1}{\sqrt{\epsilon _{0} \mu _{0}}}\right]\\
+ & =\tfrac{1}{\mu _{0}} EB.
+\end{align*}
+If we define $S:=\frac{1}{A} \cdot \frac{dU}{dt}$, we can promote $S$ to a vector:
+\begin{equation}
+\boxed{\vec{S} =\tfrac{1}{\mu _{0}} \ \vec{E} \times \vec{B} ,}
+\end{equation}
+which we call the \underline{Poynting Vector}, representing the energy flowing through EM waves.
+
+
+
+\textit{Remark:} This better describes how energy in an AC circuit flows in one direction, in spite of the electron flow / E-field constantly reversing directions. This \href{https://www.veritasium.com/videos/2021/11/19/the-big-misconception-about-electricity}{Veritasium video} gives a great visualization of how the it's the fields transfer energy, not the electrons. 
+
+\
+
+\
+
+
+Now consider some EM plane wave moving in the $\hat{x}$\textit{ direction}, given by $\begin{cases}
+\vec{E} =E_{0}\cos( kx-\omega t)\hat{y}\\
+\vec{B} =B_{0}\cos( kx-\omega t)\hat{z}
+\end{cases}$.
+
+We ``reverse" the wave to move in $-\hat{x}$\textit{ direction} by flipping $\vec{B}$ and changing the phase such that as $t$ increases, the $\cos$ wave shifts to the left ($-x$ direction): $\begin{cases}
+\vec{E} =E_{0}\cos( kx+\omega t)\hat{y}\\
+\vec{B} =B_{0}\cos( kx+\omega t)( -\hat{z})
+\end{cases}$.
+
+We plug these $\vec{E}$ and $\vec{B}$ into the Poynting Vector from (2) to get
+\begin{align*}
+\vec{S} & =\tfrac{1}{\mu _{0}} E_{0} B_{0}\cos^{2}( kx-\omega t)\hat{x} .
+\end{align*}
+Note that this is positive for all $t$, which solidifies the notion of energy transfer (if it were oscillating back and forth, it would cancel out). 
+
+
+
+The average of $\cos^{2}$ is a half, so the average of the Poynting vector becomes:
+\begin{equation*}
+\boxed{\langle S\rangle =\tfrac{1}{2\mu _{0}} E_{0} B_{0} .}
+\end{equation*}
+
+\
+
+\hline
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
